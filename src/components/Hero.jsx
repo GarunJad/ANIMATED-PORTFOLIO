@@ -94,7 +94,7 @@ const Hero = () => {
                     transition={{ duration: 1, delay: 0.5 }}
                     className="text-primary font-mono text-sm tracking-[0.3em] mb-4 uppercase"
                 >
-                    System Online // Welcome User
+                    WELCOME TO MY PORTFOLIO
                 </motion.p>
 
                 {/* Name with Glitch Effect / Reveal */}

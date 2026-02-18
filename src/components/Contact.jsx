@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Mail, Smartphone } from 'lucide-react';
 
@@ -9,12 +10,34 @@ const Contact = () => {
         message: ''
     });
 
-    const handleSubmit = (e) => {
+    const formRef = React.useRef();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here you would handle the submission
-        console.log("Transmission sent:", formState);
-        alert("SIGNAL TRANSMITTED SUCCESSFULLY");
-        setFormState({ name: '', email: '', message: '' });
+        setIsSubmitting(true);
+
+        try {
+            // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
+            // Sign up at https://www.emailjs.com/
+            // 1. Create a Service (e.g., Gmail) -> Get Service ID
+            // 2. Create an Email Template -> Get Template ID
+            // 3. Go to Account > API Keys -> Get Public Key
+
+            const serviceID = 'service_a6768lf';
+            const templateID = 'template_68ynuok';
+            const publicKey = 'D2KGs2QSkcUqOtHTU';
+
+            await emailjs.sendForm(serviceID, templateID, formRef.current, publicKey);
+
+            alert("SIGNAL TRANSMITTED SUCCESSFULLY. ORBITAL DROP INBOUND.");
+            setFormState({ name: '', email: '', message: '' });
+        } catch (error) {
+            console.error('FAILED...', error);
+            alert("TRANSMISSION FAILED. CHECK SYSTEM LOGS.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -61,10 +84,11 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <div className="w-full md:w-1/2">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                             <div className="relative group">
                                 <input
                                     type="text"
+                                    name="from_name" // EmailJS looks for 'name' attribute
                                     placeholder="CODENAME (Name)"
                                     required
                                     value={formState.name}
@@ -77,6 +101,7 @@ const Contact = () => {
                             <div className="relative group">
                                 <input
                                     type="email"
+                                    name="from_email"
                                     placeholder="FREQUENCY (Email)"
                                     required
                                     value={formState.email}
@@ -88,6 +113,7 @@ const Contact = () => {
 
                             <div className="relative group">
                                 <textarea
+                                    name="message"
                                     rows="5"
                                     placeholder="TRANSMISSION CONTENT..."
                                     required
@@ -100,10 +126,11 @@ const Contact = () => {
 
                             <button
                                 type="submit"
-                                className="w-full bg-primary/20 border border-primary text-primary font-display font-bold py-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group"
+                                disabled={isSubmitting}
+                                className="w-full bg-primary/20 border border-primary text-primary font-display font-bold py-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                                SEND SIGNAL
+                                <Send size={20} className={`group-hover:translate-x-1 transition-transform ${isSubmitting ? 'animate-ping' : ''}`} />
+                                {isSubmitting ? 'TRANSMITTING...' : 'SEND SIGNAL'}
                             </button>
                         </form>
                     </div>

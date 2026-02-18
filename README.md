@@ -6,7 +6,7 @@
 
 This project is a high-performance, cinematic personal portfolio website built with **React**, **Three.js**, and **Framer Motion**. It features a unique **Manga/Anime aesthetic**, using bold typography, high-contrast monochrome visuals with striking red accents, and immersive scroll-based character transitions.
 
-![Preview](https://i.ibb.co/example-preview.png) <!-- Replace with actual screenshot if available -->
+![Preview](public/images/Preview.png)
 
 ## 🌟 Key Features
 

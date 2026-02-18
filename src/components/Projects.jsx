@@ -9,7 +9,7 @@ const projectsData = [
         title: "Intelligent Pipeline",
         category: "AI/ML SYSTEM",
         tags: ["FastAPI", "Postgres", "LangChain"],
-        image: "/images/project-1-new.png",
+        image: import.meta.env.BASE_URL + "images/project-1-new.png",
         description: "Natural language to SQL querying system. Converts human questions into optimized database queries with automated validation and metadata tracking for enterprise data warehouses.",
         link: "https://github.com/GarunJad",
         github: "https://github.com/GarunJad"
@@ -19,7 +19,7 @@ const projectsData = [
         title: "AI-PBX Gateway",
         category: "TELECOM INFRA",
         tags: ["Node.js", "WebSockets", "FreePBX"],
-        image: "/images/project-2-new.png",
+        image: import.meta.env.BASE_URL + "images/project-2-new.png",
         description: "Real-time telephony bridge handling live call events. Intercepts SIP packets and routes them through AI agents for automated customer support and sentiment analysis.",
         link: "https://github.com/GarunJad/AI-PBX-Integration-Gateway",
         github: "https://github.com/GarunJad/AI-PBX-Integration-Gateway"
@@ -29,7 +29,7 @@ const projectsData = [
         title: "Real-Time Chat",
         category: "SECURE COMM",
         tags: ["MERN", "Socket.io", "E2E Encryption"],
-        image: "/images/project-3-new.png",
+        image: import.meta.env.BASE_URL + "images/project-3-new.png",
         description: "Encrypted messaging platform with persistent storage. Features real-time typing indicators, read receipts, and a self-destructing message mode.",
         link: "https://github.com/GarunJad",
         github: "https://github.com/GarunJad"
@@ -72,12 +72,7 @@ const ProjectCard = ({ project, setSelectedId }) => {
                 />
 
                 <div className="absolute bottom-0 left-0 w-full p-8 z-30">
-                    <div className="flex items-center gap-2 mb-2">
-                        <div className="h-[2px] w-8 bg-primary" />
-                        <span className="text-primary font-mono font-bold tracking-widest text-xs uppercase">
-                            {project.category}
-                        </span>
-                    </div>
+
 
                     <h3 className="text-3xl font-display font-black text-white mb-4 leading-none uppercase italic" style={{ textShadow: "2px 2px 0px #000" }}>
                         {project.title}

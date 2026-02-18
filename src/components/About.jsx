@@ -25,10 +25,10 @@ const About = () => {
                     <div className="relative w-full max-w-md mx-auto aspect-[3/4] border-4 border-white skew-x-[-5deg] overflow-hidden shadow-[20px_20px_0px_#ff0033] group">
                         {/* Placeholder for Character Image - utilizing one of the copied assets */}
                         <img
-                            src="/images/goku-manga-stand.jpg"
+                            src={import.meta.env.BASE_URL + "images/goku-manga-stand.jpg"}
                             alt="About Character"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                            onError={(e) => { e.target.src = '/images/about-bg.jpg' }} // Fallback
+                            onError={(e) => { e.target.src = import.meta.env.BASE_URL + 'images/about-bg.jpg' }} // Fallback
                         />
 
                         {/* Tech Overlay */}

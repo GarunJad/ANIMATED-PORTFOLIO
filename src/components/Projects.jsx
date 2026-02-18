@@ -100,27 +100,12 @@ const Projects = () => {
     const selectedProject = projectsData.find(p => p.id === selectedId);
 
     return (
-        <section id="projects" className="py-32 relative bg-transparent">
-            {/* Massive Manga Text Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-5 select-none overflow-hidden">
-                <span className="text-[20vw] font-black font-display text-white leading-none whitespace-nowrap">IMPACT</span>
-            </div>
-
-            <div className="container mx-auto px-6 relative z-10">
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    className="text-5xl md:text-8xl font-display font-black text-center mb-24 uppercase"
-                >
-                    <span className="text-white">Deployed</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Missions</span>
-                </motion.h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="relative z-10 py-6 md:py-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {projectsData.map(project => (
                         <ProjectCard key={project.id} project={project} setSelectedId={setSelectedId} />
                     ))}
                 </div>
-            </div>
 
             {/* Modal */}
             <AnimatePresence>
@@ -197,7 +182,7 @@ const Projects = () => {
                     </div>
                 )}
             </AnimatePresence>
-        </section>
+        </div>
     );
 };
 

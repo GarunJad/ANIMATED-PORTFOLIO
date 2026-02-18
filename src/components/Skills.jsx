@@ -38,21 +38,8 @@ const Skills = () => {
     }
 
     return (
-        <section id="skills" className="py-20 bg-transparent relative overflow-hidden">
-            {/* Background Grid - Made lighter/subtler */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20" />
-
-            <div className="container mx-auto px-6 relative z-10">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-5xl md:text-7xl font-display font-black text-center mb-20 uppercase tracking-tighter"
-                >
-                    <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">SKI</span> <span className="text-primary drop-shadow-[0_0_15px_rgba(255,0,51,0.8)]">LLS</span>
-                </motion.h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Category 1 */}
                     <Tilt options={defaultTiltOptions} className="h-full">
                         <div className="h-full p-8 border-2 border-primary/30 bg-black/60 backdrop-blur-md hover:border-primary transition-colors relative group">
@@ -92,7 +79,6 @@ const Skills = () => {
                     </Tilt>
                 </div>
             </div>
-        </section>
     );
 };
 

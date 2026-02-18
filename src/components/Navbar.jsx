@@ -22,8 +22,20 @@ const Navbar = () => {
         { name: 'CONTACT', href: '#contact' },
     ];
 
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        const lenis = window.__lenis;
+
+        if (lenis && target) {
+            lenis.scrollTo(target, { offset: -80 });
+        } else if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-white/10' : 'py-6 bg-transparent'}`}>
+        <nav className={`fixed w-full z-40 transition-all duration-300 ${scrolled ? 'py-4 bg-black/70 backdrop-blur-md border-b border-white/10' : 'py-6 bg-transparent'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
                 <motion.div
@@ -40,6 +52,7 @@ const Navbar = () => {
                         <motion.a
                             key={link.name}
                             href={link.href}
+                            onClick={(e) => handleNavClick(e, link.href)}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
@@ -79,7 +92,10 @@ const Navbar = () => {
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={(e) => {
+                                        handleNavClick(e, link.href);
+                                        setIsOpen(false);
+                                    }}
                                     className="text-lg font-display tracking-widest hover:text-primary transition-colors"
                                 >
                                     {link.name}

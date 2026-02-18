@@ -41,10 +41,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-20 bg-black relative">
-            {/* Background particles or grid could go here */}
-
-            <div className="container mx-auto px-6 relative z-10">
+        <div className="py-10 md:py-16 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -88,7 +85,7 @@ const Contact = () => {
                             <div className="relative group">
                                 <input
                                     type="text"
-                                    name="from_name" // EmailJS looks for 'name' attribute
+                                    name="from_name"
                                     placeholder="CODENAME (Name)"
                                     required
                                     value={formState.name}
@@ -135,8 +132,7 @@ const Contact = () => {
                         </form>
                     </div>
                 </div>
-            </div>
-        </section>
+        </div>
     );
 };
 

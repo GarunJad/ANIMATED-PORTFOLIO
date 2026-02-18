@@ -11,8 +11,8 @@ const About = () => {
     ];
 
     return (
-        <section id="about" className="relative min-h-screen py-20 bg-transparent flex items-center overflow-hidden">
-            <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
+        <div className="w-full py-10 md:py-16">
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
 
                 {/* Character Image / Avatar Area */}
                 <motion.div
@@ -48,7 +48,7 @@ const About = () => {
                     viewport={{ once: true }}
                     className="w-full md:w-1/2"
                 >
-                    <div className="p-8 md:p-12 relative overflow-hidden bg-black/70 backdrop-blur-md border border-white/10 shadow-2xl skew-x-[-2deg]">
+                    <div className="p-8 md:p-12 relative overflow-hidden bg-black/70 backdrop-blur-md border border-white/10 shadow-2xl">
                         {/* Decorative Corner Lines */}
                         <div className="absolute top-0 left-0 w-20 h-20 border-t-8 border-l-8 border-primary rounded-tl-sm opacity-100" />
                         <div className="absolute bottom-0 right-0 w-20 h-20 border-b-8 border-r-8 border-white rounded-br-sm opacity-100" />
@@ -80,7 +80,7 @@ const About = () => {
                     </div>
                 </motion.div>
             </div>
-        </section>
+        </div>
     );
 };
 

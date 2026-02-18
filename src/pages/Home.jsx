@@ -9,7 +9,7 @@ import Contact from '../components/Contact';
 
 const posters = {
     hero: import.meta.env.BASE_URL + 'images/sung-jinwoo-solo-7680x4320-17972.jpg',
-    about: import.meta.env.BASE_URL + 'images/Best photo.jpg',
+    about: import.meta.env.BASE_URL + 'images/section-bg-projects-v2.jpg',
     skills: import.meta.env.BASE_URL + 'images/tanjiro-kamado-6082x5416-23027.jpg',
     projects: import.meta.env.BASE_URL + 'images/monkey-d-luffy-5120x2880-22501.jpg',
     contact: import.meta.env.BASE_URL + 'images/satoru-gojo-suguru-7972x4553-14539.jpeg',
